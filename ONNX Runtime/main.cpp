@@ -8,7 +8,7 @@
 #include <string>
 #include <fstream>
 
-void LoadTestData(const std::string& file_path, std::vector<float>& X_data, std::vector<float>& Y_data) {
+template <typename T> void LoadTestData(const std::string& file_path, std::vector<T>& X_data, std::vector<T>& Y_data) {
 
 	X_data.clear();
     Y_data.clear();

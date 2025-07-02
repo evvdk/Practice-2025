@@ -1,7 +1,9 @@
 [Bb]uild/
 .venv/
+venv/
 *.onnx
 *.png
+*.csv
 
 #Generated data
 data.txt
