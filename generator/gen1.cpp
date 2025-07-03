@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include <fstream>
 #include <cmath>
@@ -8,10 +7,12 @@ template <typename T> struct Point {
     T f;
 };
 
-int main(){
+int main(int argc, char *argv[]){
     srand(time(0));
-
-    const int recordsCount = 1000;
+    std::string out_file_path;
+    if(argc == 2) out_file_path = std::string(argv[1]);
+    else out_file_path = "data.txt";
+    int recordsCount = 1000;
     std::vector <Point<float>> data(recordsCount, Point<float>{0,1.25});
     for(int i = 0; i<recordsCount; i++){
         data[i].t = 0.1 * i;
@@ -24,7 +25,7 @@ int main(){
         else data[i].f = 4 + (float)(rand()%50)/100; 
     }
 
-    std::ofstream file("data.txt");
+    std::ofstream file(out_file_path);
     if(!file.is_open()){
         return -1;
     }
@@ -32,4 +33,6 @@ int main(){
         file << data[i].t << "\t" << data[i].f;
         if(i != recordsCount-1) file << "\n";
     }
+
+    printf("Создан файл %s для %d записей\n", out_file_path.c_str(), recordsCount);
 }

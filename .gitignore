@@ -6,4 +6,4 @@ venv/
 *.csv
 
 #Generated data
-data.txt
+data*.txt
